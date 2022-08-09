@@ -16,18 +16,19 @@
                 <button type='submit' class="w-20 bg-blue-600 hover:bg-blue-500 text-white rounded px-4 py-2">作成</button>
             </form>
             @foreach ($tasks as $task)
-                <!-- 編集ここから -->
                 <div class="flex flex-wrap justify-between p-2 my-5 bg-green-600 rounded">
                     <div class="text-white">{{ $task['title'] }}</div>
                     <div class="flex">
-                        <button type='submit' class="w-20 bg-blue-600 hover:bg-blue-500 text-white rounded px-4 py-2 mr-2" onclick="location.href='#'">編集</button>
+                        <!-- 編集ここから -->
+                        <button type='submit' class="w-20 bg-blue-600 hover:bg-blue-500 text-white rounded px-4 py-2 mr-2" 
+                        onclick="location.href='/edit/{{ $task['id'] }}'">編集</button>
+                        <!-- 編集ここまで -->
                         <form method='POST' action="/delete/{{ $task['id'] }}" enctype="multipart/form-data">
                             @csrf
                             <button type='submit' class="w-20 bg-red-600 hover:bg-red-500 text-white rounded px-4 py-2">削除</button>
                         </form>
                     </div>
                 </div>
-                <!-- 編集ここまで -->
             @endforeach
         </div>
     </div>

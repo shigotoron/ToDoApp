@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [TaskController::class, 'show'])->middleware(['auth'])->name('dashboard');
 Route::post('/store', [TaskController::class, 'store'])->middleware(['auth'])->name('store');
-Route::post('/delete/{id}', [TaskController::class, 'delete'])->middleware(['auth'])->name('delete'); // 追記
+Route::post('/delete/{id}', [TaskController::class, 'delete'])->middleware(['auth'])->name('delete');
+Route::get('/edit/{id}', [TaskController::class, 'edit'])->middleware(['auth'])->name('edit'); // 追記
+Route::post('/update/{id}', [TaskController::class, 'update'])->middleware(['auth'])->name('update'); // 追記
 
 require __DIR__.'/auth.php';
